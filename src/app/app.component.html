@@ -15,15 +15,15 @@
 
     <!-- Bio description -->
     <!-- Bio description -->
-<div class="w-full md:w-1/4 px-10 md:border-r-2 border-black">
+<div class="w-full md:w-5/6 lg:w-1/4  px-10 md:border-r-2 border-black">
 
   <ng-container *ngIf="userProfileData !== ''; else skeleton">
     <!-- Actual content when userProfileData is available -->
-    <div class="w-full h-auto mt-8 mb-4 font-mabryPro bg-[#25b2af] border-black shadow-[7px_7px_0px_-0px_rgba(0,0,0,1)] relative border-2">
-      <div class="w-auto h-60 pt-14 mx-6">
+    <div class="w-fit  h-auto mt-8 mb-4 font-mabryPro bg-[#25b2af] border-black shadow-[7px_7px_0px_-0px_rgba(0,0,0,1)] relative border-2">
+      <div class="w-auto h-2/3 pt-14 mx-6">
         <img [src]="userProfileData.avatar_url" alt="User Avatar" class="border-black border-2" />
       </div>
-      <div class="h-auto text-xl font-semibold md:mt-4 mt-24 xl:mt-24 leading-6 pl-6 pb-6">
+      <div class="h-auto text-xl font-semibold md:mt-4 mt-6 xl:mt-6 leading-6 pl-6 px-2 pb-6">
         <div>
           {{ userProfileData.name }}
         </div>
