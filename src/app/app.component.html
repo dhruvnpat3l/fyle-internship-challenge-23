@@ -23,7 +23,7 @@
       <div class="w-auto h-60 pt-14 mx-6">
         <img [src]="userProfileData.avatar_url" alt="User Avatar" class="border-black border-2" />
       </div>
-      <div class="h-auto text-xl font-semibold md:mt-6 mt-24 xl:mt-24 leading-6 pl-6 pb-6">
+      <div class="h-auto text-xl font-semibold md:mt-4 mt-24 xl:mt-24 leading-6 pl-6 pb-6">
         <div>
           {{ userProfileData.name }}
         </div>
@@ -97,7 +97,7 @@
 <div class="sm:flex sm:flex-wrap justify-center mt-2 md:mt-8 md:ml-2 md:overflow-y-auto md:h-2/3 overflow-visible md:overflow-hidden">
   <div *ngFor="let repo of userReposData, let i = index">
     <a [href]="repo.svn_url" target="_blank">
-      <div class="w-50 md:w-80 h-auto mt-4  md:h-50 border-2 p-2 md:p-3 border-black font-mabryPro m-2 md:m-3 shadow-[7px_7px_0px_-0px_rgba(0,0,0,1)]" [style.background-color]="getCardBackgroundColor(i)">
+      <div class="w-50 md:w-80 h-auto mt-4  md:h-50 border-2 p-2 md:p-3 border-black font-mabryPro m-2 mx-6 md:m-3 shadow-[7px_7px_0px_-0px_rgba(0,0,0,1)]" [style.background-color]="getCardBackgroundColor(i)">
         <ng-container *ngIf="!loadingRepos; else skeleton">
           <strong class="text-lg">{{ repo.name }}</strong>
           <p class="text-sm pl-2 max-h-[20em] line-clamp-6">{{ repo.description }}</p>
