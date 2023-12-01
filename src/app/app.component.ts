@@ -50,8 +50,9 @@ export class AppComponent implements OnInit {
   loadUserData(user:string):void{
     const lastUsername = this.userName
     const newUsername = user.trim();
+    this.userProfileData = ''
     if (newUsername !== '' && newUsername !== this.currentUsername) {
-      this.apiService.getUser(this.userName).subscribe(
+      this.apiService.getUser(this.userName).pipe(delay(300) ).subscribe(
         (userData) => {
           this.userProfileData = userData;
           console.log(this.userProfileData);
