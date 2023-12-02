@@ -1,43 +1,130 @@
-# Fyle Frontend Challenge
+### 🚀 Explore GitHub Repositories with GithuBrowsr! 🌐🔍
 
-## Who is this for?
+GithuBrowsr is a dynamic website that leverages the power of the GitHub REST API to offer an immersive exploration of GitHub repositories associated with a specific user. Uncover the coding adventures, discover projects, and dive into the world of collaborative coding! 🚀🔧💻
 
-This challenge is meant for candidates who wish to intern at Fyle and work with our engineering team. The candidate should be able to commit to at least 6 months of dedicated time for internship.
+## 🚀 Demo
+Check out the live demo [here](https://repofind.vercel.app/) .
 
-## Why work at Fyle?
+## 🚀 Galactic Setup: Unleash the Project Cosmos 🌌 (Installation 🚀)
 
-Fyle is a fast-growing Expense Management SaaS product. We are ~40 strong engineering team at the moment. 
+1. **Grab a Local Copy:**
 
-We are an extremely transparent organization. Check out our [careers page](https://careers.fylehq.com) that will give you a glimpse of what it is like to work at Fyle. Also, check out our Glassdoor reviews [here](https://www.glassdoor.co.in/Reviews/Fyle-Reviews-E1723235.htm). You can read stories from our teammates [here](https://stories.fylehq.com).
+   First things first! Clone this awesome project to your local machine:
 
-## Challenge outline
+   ```bash
+   git clone https://github.com/dontdude/fyle-internship-challenge-23.git
 
-This challenge involves implementing application using github api. 
+2. **Enter the Project Universe:**
+   
+   Navigate to the project's root directory and step into a world of possibilities:
 
-The services that you need to use are already implemented - check out ApiService.
+   ```
+   cd fyle-internship-challenge-23
+   ```
+3. **Summon Dependencies:**
+  
+   Use the magical npm spell to summon all the project dependencies:
 
-You can see details of this challenge [here](https://fyleuniverse.notion.site/fyleuniverse/Fyle-Frontend-development-challenge-cb5085e5e0864e769e7b98c694400aaa)
+    ```
+   npm install
+   ```
+   Watch as npm conjures up the necessary potions to bring your project to life! 🧙✨
 
-__Note__ - This challenge is in angular. We work on angular frameworks & after you join we expect the same from you. Hence it is required to complete this assignement in angular itself.
+   That's it! Your quest to set up this project has begun. May your coding journey be as exciting as a heroic adventure! 🚀
 
-## What happens next?
+## Launch the Spaceship 🚀
 
-You will hear back within 48 hours from us via email.
+ **Start the Development Engines:**
 
-## Installation
+   Ready for liftoff? Launch the development server and watch your project soar into the digital cosmos:
 
-1. Fork this repository to your github account.
-2. Clone the forked repository and proceed with steps mentioned below.
+   ```
+   ng serve
+   ```
+Now, your app is hosted at http://localhost:4200/. Embark on an interstellar journey through your project's universe! 🌌
 
-### Install requirements
-* Install angular cli [Ref](https://angular.io/cli)
-* `npm install` in this repository 
+## Testing Warp Drives 🚀🧪
 
-## Development server
+1. **Initiate Quantum Tests:**
 
-Run `ng serve` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+   Engage your project's testing warp drives! Execute the test suite using the power of Jasmine and Karma:
 
-## Further help
+   ```
+   ng test
+   ```
+   Watch as your unit tests navigate through the space-time continuum, ensuring the stability of your project's warp core.
 
-Visit the [Angular Documentation](https://angular.io/guide/styleguide) to learn more.
-Styling is to be strictly done with [Tailwind](https://tailwindcss.com/docs/installation).
+   May your tests be as successful as a perfectly executed hyperspace jump! 🌌🚀
+
+## Component Quantum Tests 🚀🛸
+
+ Welcome to the interdimensional testing chamber, where your components become the heroes of their own epic saga! Follow these steps to ensure your components are ready to embark on their thrilling adventures:
+
+ ### The Heroic Ritual:
+
+1. **Summon the Testing Spirits:**
+
+   Open the portal to the testing realm with the mighty command:
+
+   ```
+   ng test
+   ```
+ #### Individual Component Quests:
+
+ 1. **Select a Component Champion::**
+
+    Choose a noble component as your champion for testing. Navigate to its domain:
+    ```
+    ng test --include=src/app/path-to-your-component/*.spec.ts
+    ```
+    Witness as your chosen component faces the trials set forth by the testing realm.
+
+2. **Celebrate Victorious Components:**
+
+    After a successful quest, celebrate your component's victories:
+
+    ```
+    ng test --include=src/app/path-to-your-component/*.spec.ts --code-coverage
+    ```
+    Revel in the glory of code coverage reports, as your components proudly display their conquered territories!
+
+    May your components emerge victorious and bring peace to the realms of your application! 🏆🌌
+
+## 📷 Screenshots
+
+
+
+###  📱 Mobile View
+
+#### Profile card
+<img src='./README_PHOTO/Mobile_profile.jpg' height="400" alt='watchlist'>
+
+#### Reposiotry card
+<img src='./README_PHOTO/Mobile_Repocard.jpg' height="400" alt='watchlist'>
+
+###  💻 Laptop View
+
+#### Wathchlist 
+<img src='./README_PHOTO/Desktop.png' height="400" alt='watchlist'>
+
+## Technologies Used 🚀
+
+- **Angular:** A platform and framework for building client-side applications.
+- **RxJS:** A library for reactive programming using Observables, widely used in Angular applications.
+- **Angular Material:** A UI component library for Angular that follows the Material Design principles.
+- **HttpClient:** Angular's built-in module for making HTTP requests.
+- **Jasmine and Karma:** Testing frameworks for writing and running unit tests in Angular.
+- **Mockito (Jasmine SpyObj):** Used for creating spies and mocks in Jasmine tests.
+- **HttpClientTestingModule:** Part of Angular testing utilities, provides a mock implementation of HttpClient for testing.
+- **TypeScript:** A superset of JavaScript that adds static types to the language.
+
+## Development Tools 🛠️
+
+- **Visual Studio Code (VSCode):** A popular code editor with great support for Angular development.
+- **Git:** Version control system for tracking changes in your codebase.
+- **GitHub:** A platform for version control and collaboration, where this project is hosted.
+- **npm:** Package manager for JavaScript/TypeScript, used for managing project dependencies.
+
+## API 🌐
+
+- **GitHub REST API:** Used to fetch user and repository data.
