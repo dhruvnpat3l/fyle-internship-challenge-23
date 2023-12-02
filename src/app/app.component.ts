@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  userName: string = 'willmendesneto';
+  userName: string = 'dhruvnpat3l';
   userProfileData: any = undefined;
   userReposData: any = undefined;
   currentPage: number = 1;
@@ -48,7 +48,6 @@ export class AppComponent implements OnInit {
   }
 
   loadUserData(user:string):void{
-    const lastUsername = this.userName
     const newUsername = user.trim();
     this.userProfileData = ''
     if (newUsername !== '' && newUsername !== this.currentUsername) {
@@ -114,12 +113,14 @@ export class AppComponent implements OnInit {
   //     }
   //   );
   // }
-
+  
+  //Pageination
   onPageChange(pageNumber: number): void {
     this.currentPage = pageNumber;
     this.loadRepos(this.userName,this.repoPerPage,this.currentPage);
   }
-
+  
+  //set how much repo per page 
   setRepoPerPage(count: number): void {
     this.repoPerPage = count;
     this.currentPage = 1
