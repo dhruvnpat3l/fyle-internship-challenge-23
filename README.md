@@ -43,26 +43,16 @@ Check out the live demo [here](https://repofind.vercel.app/) .
    ```
 Now, your app is hosted at http://localhost:4200/. Embark on an interstellar journey through your project's universe! 🌌
 
-## Testing Warp Drives 🚀🧪
 
-1. **Initiate Quantum Tests:**
 
-   Engage your project's testing warp drives! Execute the test suite using the power of Jasmine and Karma:
-
-   ```
-   ng test
-   ```
-   Watch as your unit tests navigate through the space-time continuum, ensuring the stability of your project's warp core.
-
-   May your tests be as successful as a perfectly executed hyperspace jump! 🌌🚀
 
 ## Component Quantum Tests 🚀🛸
 
- Welcome to the interdimensional testing chamber, where your components become the heroes of their own epic saga! Follow these steps to ensure your components are ready to embark on their thrilling adventures:
+ Welcome to the testing zone, where your components prove their mettle in the digital arena. Follow these steps to ensure each component is battle-tested and ready for real-world action:
 
- ### The Heroic Ritual:
+ ### Evoke the Testing Spirits:
 
-1. **Summon the Testing Spirits:**
+1. **Run General Tests:**
 
    Open the portal to the testing realm with the mighty command:
 
@@ -71,22 +61,22 @@ Now, your app is hosted at http://localhost:4200/. Embark on an interstellar jou
    ```
  #### Individual Component Quests:
 
- 1. **Select a Component Champion::**
+ 1. **Api service testing:**
 
-    Choose a noble component as your champion for testing. Navigate to its domain:
+    Select a critical component, such as the API service, for targeted testing. Navigate to its testing domain:
     ```
-    ng test --include=src/app/path-to-your-component/*.spec.ts
+    ng test --include=src/service/api.service.spec.ts
     ```
-    Witness as your chosen component faces the trials set forth by the testing realm.
+    Observe as the API service faces specific challenges, ensuring it provides accurate data to the rest of your application..
 
-2. **Celebrate Victorious Components:**
+2. **App component testing:**
 
-    After a successful quest, celebrate your component's victories:
+    Revel in the insights gained from code coverage reports, validating your components' functionality.
 
     ```
-    ng test --include=src/app/path-to-your-component/*.spec.ts --code-coverage
+    ng test --include=src/app/app.component.spec.ts
     ```
-    Revel in the glory of code coverage reports, as your components proudly display their conquered territories!
+   Revel in the insights gained from code coverage reports, validating your components' functionality.
 
     May your components emerge victorious and bring peace to the realms of your application! 🏆🌌
 
@@ -104,7 +94,7 @@ Now, your app is hosted at http://localhost:4200/. Embark on an interstellar jou
 
 ###  💻 Laptop View
 
-#### Wathchlist 
+
 <img src='./README_PHOTO/Desktop.png' height="400" alt='watchlist'>
 
 ## Technologies Used 🚀
@@ -118,12 +108,6 @@ Now, your app is hosted at http://localhost:4200/. Embark on an interstellar jou
 - **HttpClientTestingModule:** Part of Angular testing utilities, provides a mock implementation of HttpClient for testing.
 - **TypeScript:** A superset of JavaScript that adds static types to the language.
 
-## Development Tools 🛠️
-
-- **Visual Studio Code (VSCode):** A popular code editor with great support for Angular development.
-- **Git:** Version control system for tracking changes in your codebase.
-- **GitHub:** A platform for version control and collaboration, where this project is hosted.
-- **npm:** Package manager for JavaScript/TypeScript, used for managing project dependencies.
 
 ## API 🌐
 
