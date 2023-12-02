@@ -51,14 +51,13 @@ export class AppComponent implements OnInit {
     const newUsername = user.trim();
     this.userProfileData = ''
     if (newUsername !== '' && newUsername !== this.currentUsername) {
-      this.apiService.getUser(this.userName).pipe(delay(300) ).subscribe(
+      this.apiService.getUser(newUsername).pipe().subscribe(
         (userData) => {
           this.userProfileData = userData;
-          console.log(this.userProfileData);
           this.loadRepos(newUsername, this.repoPerPage, this.currentPage);
           this.updateCardColors()
           this.errorMessage = ''
-          this.loadRepos(this.userName,this.repoPerPage,this.currentPage);
+          this.userName = newUsername
       
       // Update the color of each card when the user submits the form
           this.updateCardColors();
@@ -76,7 +75,7 @@ export class AppComponent implements OnInit {
         });
         this.userReposData = null
         this.userProfileData = ''
-        // Display the error message and return to the last username
+        
 
         }
       );
@@ -91,9 +90,10 @@ export class AppComponent implements OnInit {
     this.apiService.getRepos(user, repoperpage,currentpage).pipe(
       delay(300),)
       .subscribe((userData) => {
+        
         this.userReposData = userData; 
         this.loadingRepos = false
-        console.log(this.userReposData);
+        
       },
       (error) => {
         this.loadingRepos =false;
@@ -101,7 +101,7 @@ export class AppComponent implements OnInit {
       }
     );
   }
-  // Load the Repository mock data
+// Load the Repository mock data
   // loadRepos(user: string,repoperpage:number,currentpage:number): void {
   //   this.mockDataServices.getRepos().subscribe(
   //     (userData) => {

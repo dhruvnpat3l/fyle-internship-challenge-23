@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
-import { HttpClientModule } from  '@angular/common/http';
+
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
@@ -13,11 +13,11 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     FormsModule,
     NgxSkeletonLoaderModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
+    HttpClientModule
     
   ],
   providers: [MatSnackBar],

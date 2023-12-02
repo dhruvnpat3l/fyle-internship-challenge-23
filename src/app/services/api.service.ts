@@ -37,9 +37,11 @@ export class ApiService {
           language: repo.language,
           topics: repo.topics,
           description: repo.description
-        }));
+        })
+        );
       })
+      
     );
   }
-  // implement getRepos method by referring to the documentation. Add proper types for the return type and params 
+ 
 }
