@@ -1,0 +1,44 @@
+
+<div class="repo-per-page flex flex-row m-1 font-mabryPro space-x-2">
+  <p class="border-2 border-black p-1">Repositories per page:</p>
+  <button (click)="setRepoPerPage(10)" [ngStyle]="{'background-color': repoPerPage === 10 ? '#e7f02d' : '#25b2af'}" class="border-2 border-black p-2 shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)]">10</button>
+  <button (click)="setRepoPerPage(20)" [ngStyle]="{'background-color': repoPerPage === 20 ? '#e7f02d' : '#25b2af'}" class="border-2 border-black p-2 shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)]">20</button>
+  <button (click)="setRepoPerPage(50)" [ngStyle]="{'background-color': repoPerPage === 50 ? '#e7f02d' : '#25b2af'}" class="border-2 border-black p-2 shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)]">50</button>
+  <button (click)="setRepoPerPage(100)" [ngStyle]="{'background-color': repoPerPage === 100 ? '#e7f02d' : '#25b2af'}" class="border-2 border-black p-2 shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)]">100</button>
+</div>      
+
+<!-- Repositories Grid -->
+<div class="sm:flex sm:flex-wrap justify-center mt-2 md:mt-8 md:ml-2 md:overflow-y-auto md:h-2/3 overflow-visible md:overflow-hidden">
+  <div *ngFor="let repo of userReposData, let i = index">
+    <a [href]="repo.svn_url" target="_blank">
+      <div class="w-50 md:w-80 h-auto mt-4  md:h-50 border-2 p-2 md:p-3 border-black font-mabryPro m-2 mx-6 md:m-3 shadow-[7px_7px_0px_-0px_rgba(0,0,0,1)]" [style.background-color]="getCardBackgroundColor(i)">
+        <ng-container *ngIf="!loadingRepos; else skeleton">
+          <strong class="text-lg">{{ repo.name }}</strong>
+          <p class="text-sm pl-2 max-h-[20em] line-clamp-6">{{ repo.description }}</p>
+          <div class="font-semibold flex gap-1 items-center mb-2">
+            <img [src]="imgpath" class="w-4 h-4" alt="" />
+            <p class="pt-3">{{ repo.language }}</p>
+          </div>
+          <div *ngFor="let topic of repo.topics" class="inline-block my-2">
+            <span class="mx-2 border-2 p-1 border-black shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)]">{{ topic }}</span>
+          </div>
+        </ng-container>
+        <ng-template #skeleton>
+          <ngx-skeleton-loader count="1" animation="progress" [theme]="{width:'40px',height:'40px',}" ></ngx-skeleton-loader>
+          <ngx-skeleton-loader count="2"></ngx-skeleton-loader>
+          <ngx-skeleton-loader count="1" ></ngx-skeleton-loader>
+        </ng-template>
+      </div>
+    </a>
+  </div>
+</div>
+
+
+<!-- Pagination -->
+<div *ngIf="userReposData" class="pagination text-center mt-4 space-x-3 font-mabryPro">
+  <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage ===1" class="p-1 bg-[#25b2af] shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)] border-black border-2">Previous</button>
+  <span class="p-1 bg-[#25b2af] shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)] border-black border-2">Page {{ currentPage }}</span>
+  <button class="p-1 bg-[#25b2af] shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)] relative border-black border-2" (click)="onPageChange(currentPage + 1)" [disabled]="userReposData.length < repoPerPage">Next</button>
+</div>
+
+    

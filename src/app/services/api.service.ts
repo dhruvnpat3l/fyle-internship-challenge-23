@@ -9,6 +9,7 @@ export class ApiService {
 
   constructor(
     private httpClient: HttpClient
+  
   ) { }
 
   getUser(githubUsername: string) {
@@ -25,12 +26,12 @@ export class ApiService {
     )
   }
   
-  getRepos(githubUsername: string, repoPerPage: number, page: number) {
+  getRepos(githubUsername: string, repoPerPage: number, page: number):Observable<any> {
     const url = `https://api.github.com/users/${githubUsername}/repos?page=${page}&per_page=${repoPerPage}`;
 
     return this.httpClient.get<any[]>(url).pipe(
       map(repos => {
-        // Transform each repository object to include only the desired fields
+        
         return repos.map(repo => ({
           svn_url: repo.svn_url,
           name: repo.name,

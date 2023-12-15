@@ -1,124 +1,29 @@
 <div class="bg-[#f2eae6]">
-
+  
+  
   <!-- Mobile View Input box -->
-  <div class="w-full md:hidden">
-    <div class="username-input p-2 text-center mx-auto pb-4 font-mabryPro md:pb-0">
-      <input id="username" type="text" [(ngModel)]="userName" (keyup.enter)="onUsernameSubmit()" autofocus [value]="userName" class="outline-none h-8 border-2 border-black pl-2 font-mabryPro" />
-      <button (click)="onUsernameSubmit()" class="ml-2 px-2 h-8 bg-[#25b2af] font-semibold shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)] text-black">
-        Search
-      </button>
-    </div>
+  <div class="w-full md:hidden p-2 text-center mx-auto pb-4 font-mabryPro md:pb-0">
+    <app-search/>
   </div>
 
   <!-- Desktop View -->
   <div class="md:flex md:flex-row">
     <!-- Bio description -->
-    <div class="w-full md:w-5/6 lg:w-1/4  px-10 md:border-r-2 border-black">
-
-        <ng-container *ngIf="userProfileData !== ''; else skeleton">
-    <!-- Actual content when userProfileData is available -->
-          <div class="w-fit  h-auto mt-8 mb-4 font-mabryPro bg-[#25b2af] border-black shadow-[7px_7px_0px_-0px_rgba(0,0,0,1)] relative border-2">
-            <div class="w-auto h-2/3 pt-14 mx-6">
-              <img [src]="userProfileData.avatar_url" alt="User Avatar" class="border-black border-2" />
-            </div>
-            <div class="h-auto text-xl font-semibold md:mt-4 mt-6 xl:mt-6 leading-6 pl-6 px-2 pb-6">
-              <div>
-                {{ userProfileData.name }}
-              </div>
-              <a href="https://github.com/{{userProfileData.login}}" class="">
-                @{{userProfileData.login}}
-              </a>
-              <p class="text-base">
-                {{ userProfileData.bio ? userProfileData.bio : "" }}
-              </p>
-              <div class="flex flex-row">
-                <svg height="27" viewBox="0 0 48 48" width="27" xmlns="http://www.w3.org/2000/svg"><path d="M24 4c-7.73 0-14 6.27-14 14 0 10.5 14 26 14 26s14-15.5 14-26c0-7.73-6.27-14-14-14zm0 19c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/><path d="M0 0h48v48h-48z" fill="none"/></svg>
-                <p>{{userProfileData.location ? userProfileData.location : 'Location'}}</p>
-              </div>
-              <a class="flex flex-row">
-                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px"><path d="M 2.8671875 3 L 9.7363281 12.818359 L 2.734375 21 L 5.3808594 21 L 10.919922 14.509766 L 15.460938 21 L 21.371094 21 L 14.173828 10.697266 L 20.744141 3 L 18.138672 3 L 12.996094 9.0097656 L 8.7988281 3 L 2.8671875 3 z"/></svg>
-                <a href="https://twitter.com/{{userProfileData.twitter_username}}">
-                  {{ userProfileData.twitter_username ? userProfileData.twitter_username : "" }}
-                </a>
-              </a>
-            </div>
-          </div>
-        </ng-container>
-
-        <ng-template #skeleton>
-    <!-- Skeleton loader when userProfileData is not available -->
-           <div class="skeleton-loader w-full h-auto mt-8 mb-4 bg-[#25b2af] border-black shadow-[7px_7px_0px_-0px_rgba(0,0,0,1)] relative border-2">
-            
-               <div class="w-auto h-60 pt-14 mx-6">
-                   <ngx-skeleton-loader count="1" animation="progress" [theme]="{ width: '100%', height: '100%' }"></ngx-skeleton-loader>
-               </div>
-      
-               <div class="h-auto text-xl font-semibold md:mt-6 mt-24 xl:mt-24 leading-6 pl-6 pb-6">
-                  <ngx-skeleton-loader count="1" animation="progress" [theme]="{ width: '80%', height: '20px', margin: '4px 0' }"></ngx-skeleton-loader>
-                  <ngx-skeleton-loader count="1" animation="progress" [theme]="{ width: '50%', height: '20px', margin: '4px 0' }"></ngx-skeleton-loader>
-                  <ngx-skeleton-loader count="1" animation="progress" [theme]="{ width: '100%', height: '20px', margin: '4px 0' }"></ngx-skeleton-loader>
-                  <ngx-skeleton-loader count="1" animation="progress" [theme]="{ width: '80%', height: '20px', margin: '4px 0' }"></ngx-skeleton-loader>
-               </div>
-    
-           </div>
-    
-        </ng-template>
-
-    </div>
+   <div class="w-full md:w-5/6 lg:w-1/4  px-10 md:border-r-2 border-black">
+     <app-profile />
+   </div> 
 
 
     <!-- Repositories -->
     <div class="w-full md:w-3/4 mx-auto h-screen">
-      <div class="username-input p-2 text-center mx-auto pb-4 border-b-2 border-black font-mabryPro invisible sm:visible">
-        <input id="username" type="text" [(ngModel)]="userName" (keyup.enter)="onUsernameSubmit()" autofocus [value]="userName" class="outline-none h-8 border-2 border-black pl-2 font-mabryPro" />
-        <button (click)="onUsernameSubmit()" class="ml-2 px-2 h-8 bg-[#25b2af] font-semibold shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)] text-black">
-          Search
-        </button>
+      <div class="p-2 text-center mx-auto pb-4 border-b-2 border-black font-mabryPro invisible sm:visible">
+        <app-search/>
       </div>
 
-      <div class="repo-per-page flex flex-row m-1 font-mabryPro space-x-2">
-        <p class="border-2 border-black p-1">Repositories per page:</p>
-        <button (click)="setRepoPerPage(10)" [ngStyle]="{'background-color': repoPerPage === 10 ? '#e7f02d' : '#25b2af'}" class="border-2 border-black p-2 shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)]">10</button>
-        <button (click)="setRepoPerPage(20)" [ngStyle]="{'background-color': repoPerPage === 20 ? '#e7f02d' : '#25b2af'}" class="border-2 border-black p-2 shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)]">20</button>
-        <button (click)="setRepoPerPage(50)" [ngStyle]="{'background-color': repoPerPage === 50 ? '#e7f02d' : '#25b2af'}" class="border-2 border-black p-2 shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)]">50</button>
-        <button (click)="setRepoPerPage(100)" [ngStyle]="{'background-color': repoPerPage === 100 ? '#e7f02d' : '#25b2af'}" class="border-2 border-black p-2 shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)]">100</button>
-      </div>      
-
-      <!-- Repositories Grid -->
-      <div class="sm:flex sm:flex-wrap justify-center mt-2 md:mt-8 md:ml-2 md:overflow-y-auto md:h-2/3 overflow-visible md:overflow-hidden">
-        <div *ngFor="let repo of userReposData, let i = index">
-          <a [href]="repo.svn_url" target="_blank">
-            <div class="w-50 md:w-80 h-auto mt-4  md:h-50 border-2 p-2 md:p-3 border-black font-mabryPro m-2 mx-6 md:m-3 shadow-[7px_7px_0px_-0px_rgba(0,0,0,1)]" [style.background-color]="getCardBackgroundColor(i)">
-              <ng-container *ngIf="!loadingRepos; else skeleton">
-                <strong class="text-lg">{{ repo.name }}</strong>
-                <p class="text-sm pl-2 max-h-[20em] line-clamp-6">{{ repo.description }}</p>
-                <div class="font-semibold flex gap-1 items-center mb-2">
-                  <img [src]="imgpath" class="w-4 h-4" alt="" />
-                  <p class="pt-3">{{ repo.language }}</p>
-                </div>
-                <div *ngFor="let topic of repo.topics" class="inline-block my-2">
-                  <span class="mx-2 border-2 p-1 border-black shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)]">{{ topic }}</span>
-                </div>
-              </ng-container>
-              <ng-template #skeleton>
-                <ngx-skeleton-loader count="1" animation="progress" [theme]="{width:'40px',height:'40px',}" ></ngx-skeleton-loader>
-                <ngx-skeleton-loader count="2"></ngx-skeleton-loader>
-                <ngx-skeleton-loader count="1" ></ngx-skeleton-loader>
-              </ng-template>
-            </div>
-          </a>
-        </div>
-      </div>
-
-
-      <!-- Pagination -->
-      <div *ngIf="userReposData" class="pagination text-center mt-4 space-x-3 font-mabryPro">
-        <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage ===1" class="p-1 bg-[#25b2af] shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)] border-black border-2">Previous</button>
-        <span class="p-1 bg-[#25b2af] shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)] border-black border-2">Page {{ currentPage }}</span>
-        <button class="p-1 bg-[#25b2af] shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)] relative border-black border-2" (click)="onPageChange(currentPage + 1)" [disabled]="userReposData.length < repoPerPage">Next</button>
-      </div>
+      <app-repo-list/>
 
     </div>
   </div>
 
 </div>
+

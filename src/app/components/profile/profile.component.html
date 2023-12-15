@@ -1,0 +1,50 @@
+
+<div>
+    <ng-container *ngIf="!loadingUserData; else skeleton">
+<!-- Actual content when userProfileData is available -->
+      <div class="w-fit  h-auto mt-8 mb-4 font-mabryPro bg-[#25b2af] border-black shadow-[7px_7px_0px_-0px_rgba(0,0,0,1)] relative border-2">
+        <div class="w-auto h-2/3 pt-14 mx-6">
+          <img [src]="userProfileData.avatar_url" alt="User Avatar" class="border-black border-2" />
+        </div>
+        <div class="h-auto text-xl font-semibold md:mt-4 mt-6 xl:mt-6 leading-6 pl-6 px-2 pb-6">
+          <div>
+            {{ userProfileData.name }}
+          </div>
+          <a href="https://github.com/{{userProfileData.login}}" target="_blank">
+            @{{userProfileData.login}}
+          </a>
+          <p class="text-base">
+            {{ userProfileData.bio ? userProfileData.bio : "" }}
+          </p>
+          <div class="flex flex-row">
+            <svg height="27" viewBox="0 0 48 48" width="27" xmlns="http://www.w3.org/2000/svg"><path d="M24 4c-7.73 0-14 6.27-14 14 0 10.5 14 26 14 26s14-15.5 14-26c0-7.73-6.27-14-14-14zm0 19c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/><path d="M0 0h48v48h-48z" fill="none"/></svg>
+            <p>{{userProfileData.location ? userProfileData.location : 'Location'}}</p>
+          </div>
+          <a *ngIf="userProfileData.twitter_username"  class="flex flex-row" target="_blank"  href="https://twitter.com/{{userProfileData.twitter_username}}">
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px"><path d="M 2.8671875 3 L 9.7363281 12.818359 L 2.734375 21 L 5.3808594 21 L 10.919922 14.509766 L 15.460938 21 L 21.371094 21 L 14.173828 10.697266 L 20.744141 3 L 18.138672 3 L 12.996094 9.0097656 L 8.7988281 3 L 2.8671875 3 z"/></svg>
+            <p >
+              {{ userProfileData.twitter_username ? userProfileData.twitter_username : "" }}
+            </p>
+          </a>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #skeleton>
+<!-- Skeleton loader when userProfileData is not available -->
+       <div class="skeleton-loader w-full h-auto mt-8 mb-4 bg-[#25b2af] border-black shadow-[7px_7px_0px_-0px_rgba(0,0,0,1)] relative border-2">
+        
+           <div class="w-auto h-60 pt-14 mx-6">
+               <ngx-skeleton-loader count="1" animation="progress" [theme]="{ width: '100%', height: '100%' }"></ngx-skeleton-loader>
+           </div>
+  
+           <div class="h-auto text-xl font-semibold md:mt-6 mt-24 xl:mt-24 leading-6 pl-6 pb-6">
+              <ngx-skeleton-loader count="1" animation="progress" [theme]="{ width: '80%', height: '20px', margin: '4px 0' }"></ngx-skeleton-loader>
+              <ngx-skeleton-loader count="1" animation="progress" [theme]="{ width: '50%', height: '20px', margin: '4px 0' }"></ngx-skeleton-loader>
+              <ngx-skeleton-loader count="1" animation="progress" [theme]="{ width: '100%', height: '20px', margin: '4px 0' }"></ngx-skeleton-loader>
+              <ngx-skeleton-loader count="1" animation="progress" [theme]="{ width: '80%', height: '20px', margin: '4px 0' }"></ngx-skeleton-loader>
+           </div>
+
+       </div>
+
+      </ng-template>
+</div>

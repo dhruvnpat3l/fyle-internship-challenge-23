@@ -1,0 +1,6 @@
+<div class="p-2 text-center mx-auto pb-4 font-mabryPro md:pb-0 ">
+  <input id="username" type="text" [(ngModel)]="userName" (keyup.enter)="onUsernameSubmit()" autofocus [value]="userName" class="outline-none h-8 border-2 border-black pl-2 font-mabryPro" />
+  <button (click)="onUsernameSubmit()" class="ml-2 px-2 h-8 bg-[#25b2af] font-semibold shadow-[3px_3px_0px_-0px_rgba(0,0,0,1)] text-black">  
+    Search
+  </button>
+</div>

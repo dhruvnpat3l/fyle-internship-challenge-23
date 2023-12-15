@@ -7,9 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { ProfileComponent } from './components/profile/profile.component';
+import { RepoListComponent } from './components/repo-list/repo-list.component';
+import { SearchComponent } from './components/search/search.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfileComponent,
+    RepoListComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
