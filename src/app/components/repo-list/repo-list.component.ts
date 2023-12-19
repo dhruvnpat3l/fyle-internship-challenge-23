@@ -38,6 +38,7 @@ export class RepoListComponent implements OnInit {
       this.loadRepos(newUsername,this.repoPerPage,this.currentPage)
       this.userName = newUsername
       this.initialCardColors = this.getInitialCardColors();
+      this.currentPage = 1
     })
   }
 
