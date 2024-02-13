@@ -5,7 +5,41 @@ import { ApiService } from './api.service';
 describe('ApiService', () => {
   let apiService: ApiService;
   let httpTestingController: HttpTestingController;
-
+ 
+  const mockUserData = {
+    "login": "slavingia",
+    "id": 74396,
+    "node_id": "MDQ6VXNlcjc0Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/74396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/slavingia",
+    "html_url": "https://github.com/slavingia",
+    "followers_url": "https://api.github.com/users/slavingia/followers",
+    "following_url": "https://api.github.com/users/slavingia/following{/other_user}",
+    "gists_url": "https://api.github.com/users/slavingia/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/slavingia/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/slavingia/subscriptions",
+    "organizations_url": "https://api.github.com/users/slavingia/orgs",
+    "repos_url": "https://api.github.com/users/slavingia/repos",
+    "events_url": "https://api.github.com/users/slavingia/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/slavingia/received_events",
+    "type": "User",
+    "site_admin": false,
+    "name": "Sahil Lavingia",
+    "company": "Gumroad",
+    "blog": "http://sahillavingia.com/",
+    "location": "San Francisco, CA",
+    "email": null,
+    "hireable": null,
+    "bio": "writing code for @gumroad. writing fiction for myself.",
+    "twitter_username": null,
+    "public_repos": 32,
+    "public_gists": 2,
+    "followers": 419,
+    "following": 11,
+    "created_at": "2009-04-16T10:43:25Z",
+    "updated_at": "2023-10-19T16:45:46Z"
+};
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
@@ -27,40 +61,7 @@ describe('ApiService', () => {
   });
 
   it('should get user data successfully', () => {
-    const mockUserData = {
-      "login": "slavingia",
-      "id": 74396,
-      "node_id": "MDQ6VXNlcjc0Mzk2",
-      "avatar_url": "https://avatars.githubusercontent.com/u/74396?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/slavingia",
-      "html_url": "https://github.com/slavingia",
-      "followers_url": "https://api.github.com/users/slavingia/followers",
-      "following_url": "https://api.github.com/users/slavingia/following{/other_user}",
-      "gists_url": "https://api.github.com/users/slavingia/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/slavingia/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/slavingia/subscriptions",
-      "organizations_url": "https://api.github.com/users/slavingia/orgs",
-      "repos_url": "https://api.github.com/users/slavingia/repos",
-      "events_url": "https://api.github.com/users/slavingia/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/slavingia/received_events",
-      "type": "User",
-      "site_admin": false,
-      "name": "Sahil Lavingia",
-      "company": "Gumroad",
-      "blog": "http://sahillavingia.com/",
-      "location": "San Francisco, CA",
-      "email": null,
-      "hireable": null,
-      "bio": "writing code for @gumroad. writing fiction for myself.",
-      "twitter_username": null,
-      "public_repos": 32,
-      "public_gists": 2,
-      "followers": 419,
-      "following": 11,
-      "created_at": "2009-04-16T10:43:25Z",
-      "updated_at": "2023-10-19T16:45:46Z"
-  };
+   
     const githubUsername = 'slavingia';
 
     apiService.getUser(githubUsername).subscribe((userData) => {
@@ -189,5 +190,21 @@ describe('ApiService', () => {
     req.flush(mockRepoData);
   });
 
+  it('should return cached user data if available', () => {
+    const githubUsername = 'slavingia';
+   
+    // Cache user data
+    apiService['cache'].set(`https://api.github.com/users/${githubUsername}`, mockUserData);
+
+    // Fetch user data
+    apiService.getUser(githubUsername).subscribe((userData) => {
+      expect(userData).toEqual(mockUserData);
+    });
+
+    // No HTTP request should be made since data is cached
+    httpTestingController.expectNone(`https://api.github.com/users/${githubUsername}`);
+  });
+
+  
 
 });
